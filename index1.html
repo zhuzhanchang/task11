@@ -41,19 +41,23 @@
 
     function findAllHtmlSpanInOneSection(sectionId) {
         var oSpan = document.getElementById(sectionId).getElementsByTagName('span');
+        var result = [];
         for (var i = 0; i < oSpan.length; i++) {
             if (oSpan[i].childNodes[0].nodeValue == 'HTML') {
-                return oSpan[i];
+                result.push(oSpan[i]);
             }
         }
+        return result;
     }
     function findListItem(sectionId, spanCont) {
         var oSpan = document.getElementById(sectionId).getElementsByTagName('span');
+        var result = [];
         for (var i = 0; i < oSpan.length; i++) {
             if (oSpan[i].childNodes[0].nodeValue == spanCont && oSpan[i].parentNode.nodeName == 'LI') {
-                return oSpan[i].parentNode;     
+                result.push(oSpan[i].parentNode);    
             }
         }
+        return result;
     }
     function getActiveLinkContent(sectionId) {
          var oA = document.getElementById(sectionId).getElementsByTagName('a');
