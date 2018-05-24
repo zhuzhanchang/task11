@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>task111</title>
+</head>
+<body>        
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                    <li><span>CSS</span><a href="">Some Link3</a></li>
+                    <li><span>JS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>HTML</span><a href="">Some Link2</a></li>
+                    <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                    <li><span>CSS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>      
+    </div>
+    <script>
+
+    function getAllListItem() {
+        return document.getElementsByTagName('li');
+    }
+
+    function findAllHtmlSpanInOneSection(sectionId) {
+        var oSpan = document.getElementById(sectionId).getElementsByTagName('span');
+        for (var i = 0; i < oSpan.length; i++) {
+            if (oSpan[i].childNodes[0].nodeValue == 'HTML') {
+                return oSpan[i];
+            }
+        }
+    }
+    function findListItem(sectionId, spanCont) {
+        var oSpan = document.getElementById(sectionId).getElementsByTagName('span');
+        for (var i = 0; i < oSpan.length; i++) {
+            if (oSpan[i].childNodes[0].nodeValue == spanCont && oSpan[i].parentNode.nodeName == 'LI') {
+                return oSpan[i].parentNode;     
+            }
+        }
+    }
+    function getActiveLinkContent(sectionId) {
+         var oA = document.getElementById(sectionId).getElementsByTagName('a');
+        for (var i = 0; i < oA.length; i++) {
+            if (oA[i].className == 'active') {
+                return oA[i].childNodes[0].nodeValue;
+            }
+        }
+    }
+    </script>
+</body>
+</html>
